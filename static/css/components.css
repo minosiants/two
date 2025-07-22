@@ -1,0 +1,11 @@
+svg {
+  fill: var(--svg-fill, var(--accent));
+  width: var(--svg-size, var(--font-medium));
+  height: var(--svg-size, var(--font-medium));
+  vertical-align: middle;
+  transition: transform 0.3s;
+  transform: scale(1.2);
+}
+path {
+  stroke: var(--svg-fill, var(--accent));
+}
