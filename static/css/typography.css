@@ -1,0 +1,87 @@
+* {
+  max-inline-size: var(--measure);
+}
+:root {
+  font-size: calc(1rem + 0.5vw);
+}
+
+html,
+body,
+div,
+ul,
+li,
+header,
+nav,
+main,
+footer,
+pre,
+article {
+  max-inline-size: none;
+}
+
+:where(h1, h2, h3, h4, h5, h6) {
+  line-height: 1.1;
+  font-family: var(--accentFont);
+  color: var(--darker);
+  text-wrap: balance;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  line-height: 1.5;
+}
+
+h1 {
+  font-size: var(--font-size-h1);
+  background-color: var(--accent);
+  border: 2px solid var(--accent);
+  border-radius: var(--border-radius-small);
+}
+
+h2 {
+  font-size: var(--font-size-h2);
+}
+
+h3 {
+  font-size: var(--font-size-h3);
+}
+
+h4 {
+  font-size: var(--font-size-h4);
+}
+
+h5 {
+  font-size: var(--font-size-h5);
+}
+
+h6 {
+  font-size: var(--font-size-h6);
+}
+
+a {
+  color: var(--darker);
+  text-decoration-thickness: 0.2rem;
+  text-decoration-color: var(--accent);
+  transition:
+    transform 0.3s ease,
+    background 0.3s ease;
+  will-change: transform;
+}
+a:hover {
+  background: var(--accent);
+  transform: scale(1.05);
+}
+
+code {
+  font-size: var(--font-small);
+  line-height: 1 !important;
+}
+
+pre {
+  overflow-y: auto;
+  color: var(--paper);
+  background: var(--darker);
+  padding: 1rem;
+  line-height: 1 !important;
+}

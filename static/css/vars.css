@@ -1,0 +1,49 @@
+:root {
+	--ratio: 1.5;
+	--s-5: calc(var(--s-4) / var(--ratio));
+	--s-4: calc(var(--s-3) / var(--ratio));
+	--s-3: calc(var(--s-2) / var(--ratio));
+	--s-2: calc(var(--s-1) / var(--ratio));
+	--s-1: calc(var(--s0) / var(--ratio));
+	--s0: 1rem;
+	--s1: calc(var(--s0) * var(--ratio));
+	--s2: calc(var(--s1) * var(--ratio));
+	--s3: calc(var(--s2) * var(--ratio));
+	--s4: calc(var(--s3) * var(--ratio));
+	--s5: calc(var(--s4) * var(--ratio));
+	--space: var(--s1);
+	--measure: 60ch;
+
+	/*  collors */
+	--background: hsla(40, 33%, 89%, 1); /*  #EDE7DB  */
+	--dark-lighter: hsla(196, 6%, 51%, 1); /* #7D888C; */
+	--dark: hsla(40, 5%, 10%, 1); /* #1C1B19 */
+	--darker: var(--dark);
+	--accent: hsla(32, 66%, 55%, 1); /* #D99543; */
+	--accent-2: hsla(15, 62%, 46%, 1); /* #BF532C */
+	--border-thin: var(--accent-2);
+
+	--ink: var(--dark);
+	--paper: var(--background);
+
+	/* fonts */
+	--primaryFont: 'Atkinson Hyperlegible Next', sans-serif;
+	--accentFont: var(--primaryFont);
+	--font-x-large: clamp(2.5rem, calc(2.5rem + 1vw), 3rem);
+	--font-large: clamp(2rem, calc(2rem + 1vw), 2.5rem);
+	--font-medium: clamp(1.5rem, calc(1.5rem + 1vw), 2rem);
+	--font-normal: clamp(1rem, calc(1rem + 0.5vw), 1.5rem);
+	--font-pre-small: clamp(0.8rem, calc(0.8rem + 1vw), 1rem);
+	--font-pre-pre-small: clamp(0.2rem, calc(0.6rem + 0.5vw), 0.8rem);
+	--font-small: clamp(0.5rem, calc(0.5rem + 1vw), 0.6rem);
+
+	--font-size-h1: clamp(2rem, calc(2rem + 1vw), 2.5rem);
+	--font-size-h2: clamp(1.8rem, calc(1.8rem + 1vw), 2rem);
+	--font-size-h3: clamp(1.6rem, calc(1.6rem + 1vw), 1.8rem);
+	--font-size-h4: clamp(1.5rem, calc(1.5rem + 1vw), 1.6rem);
+	--font-size-h5: clamp(1.35rem, calc(1.35rem + 1vw), 1.5rem);
+	--font-size-h6: cclamp(1.1rem, calc(1.1rem + 1vw), 1.25rem);
+
+	--border-radius-large: 30px;
+	--border-radius-small: 10px;
+}

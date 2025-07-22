@@ -1,3 +1,5 @@
+#![cfg(mobile)]
+
 use tauri::{
   plugin::{Builder, TauriPlugin},
   Manager, Runtime,
@@ -34,6 +36,7 @@ impl<R: Runtime, T: Manager<R>> crate::ContactsExt<R> for T {
 
 /// Initializes the plugin.
 pub fn init<R: Runtime>() -> TauriPlugin<R> {
+<<<<<<< Updated upstream
   Builder::new("contacts")
     .invoke_handler(tauri::generate_handler![commands::ping])
     .setup(|app, api| {
@@ -45,4 +48,14 @@ pub fn init<R: Runtime>() -> TauriPlugin<R> {
       Ok(())
     })
     .build()
+=======
+    Builder::new("contacts")
+        .setup(|app, api| {
+            #[cfg(target_os = "android")]
+            let contacts = mobile::init(app, api)?;
+            app.manage(contacts);
+            Ok(())
+        })
+        .build()
+>>>>>>> Stashed changes
 }

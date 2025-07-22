@@ -1,0 +1,28 @@
+input,
+button,
+select,
+textarea {
+  font: inherit;
+}
+input {
+  background: 0;
+  border: 0;
+  outline: none;
+}
+button {
+  background: none;
+  border: 1px solid var(--accent-2);
+  border-radius: var(--border-radius-small);
+  padding: var(--s-3);
+  margin: 0;
+  font: inherit;
+  color: inherit;
+  outline: none;
+  box-shadow: none;
+  cursor: pointer;
+  appearance: none;
+}
+
+button:focus {
+  outline: none;
+}
