@@ -72,11 +72,6 @@
   input {
     font-size: var(--font-size-h6);
   }
-  .line {
-    background-color: var(--color);
-    height: var(--s-5);
-    transition: background-color 0.3s;
-  }
   .result {
     height: 100vh;
   }

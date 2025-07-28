@@ -13,9 +13,7 @@ li,
 header,
 nav,
 main,
-footer,
-pre,
-article {
+footer {
   max-inline-size: none;
 }
 
@@ -33,10 +31,7 @@ body {
 }
 
 h1 {
-  font-size: var(--font-size-h1);
-  background-color: var(--accent);
-  border: 2px solid var(--accent);
-  border-radius: var(--border-radius-small);
+  font-size: var(--font-size-h4);
 }
 
 h2 {

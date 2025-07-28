@@ -1,13 +1,18 @@
 input,
 button,
 select,
-textarea {
+textarea,
+fieldset {
   font: inherit;
 }
 input {
   background: 0;
   border: 0;
   outline: none;
+  text-align: center;
+}
+input::placeholder {
+  opacity: 0.7;
 }
 button {
   background: none;
@@ -25,4 +30,6 @@ button {
 
 button:focus {
   outline: none;
+}
+fieldset {
 }
