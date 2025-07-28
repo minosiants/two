@@ -30,8 +30,8 @@ ul {
   box-sizing: content-box;
   max-inline-size: var(--measure);
   margin-inline: var(--center-margin, auto);
-  padding-inline-start: var(--padding, var(--s1));
-  padding-inline-end: var(--padding, var(--s1));
+  padding-inline-start: var(--center-padding, var(--s1));
+  padding-inline-end: var(--center-padding, var(--s1));
 }
 
 .box {
@@ -62,24 +62,25 @@ ul {
   gap: var(--sidebar-gutter, var(--s1));
 }
 
-.with-sidebar > :last-child {
-  flex-basis: 10rem;
+.with-sidebar > :first-child {
+  flex-basis: var(--sidebar-width, 10rem);
   flex-grow: 1;
 }
 .with-sidebar > :last-child {
   flex-basis: 0;
   flex-grow: 999;
-  min-inline-size: var(--sidebar-size, 50%);
+  min-inline-size: var(--sidebar-size, 30%);
 }
 
 .frame {
-  --n: 16; /* numerator */
-  --d: 9; /* denominator */
+  --n: 86; /* numerator */
+  --d: 54; /* denominator */
   aspect-ratio: var(--n) / var(--d);
   overflow: hidden;
   display: flex;
-  justify-content: center;
-  align-items: center;
+  justify-content: var(--frame-justify, center);
+  align-items: var(--frame-align, center);
+  border: 1px solid black;
 }
 .frame > img,
 .frame > video {
@@ -89,6 +90,17 @@ ul {
 }
 
 .border {
-  border: 3px solid var(--border-color, --accent);
-  border-radius: var(--border-radius, 3px);
+  border: 1px solid var(--border-color, var(--accent));
+  border-radius: var(--border-radius, var(--border-radius-large));
+}
+
+.cover {
+  /* ↓ Establish a columnal flex context */
+  display: flex;
+  flex-direction: column;
+  /* ↓ Set a minimum height to match the viewport height
+  (any minimum would be fine) */
+  min-block-size: 100vh;
+  /* Set a padding value */
+  padding: var(--space);
 }

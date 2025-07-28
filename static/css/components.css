@@ -9,3 +9,8 @@ svg {
 path {
   stroke: var(--svg-fill, var(--accent));
 }
+.line {
+  background-color: var(--line-color, var(--dark-lighter));
+  height: var(--s-5);
+  transition: background-color 0.3s;
+}
