@@ -2,8 +2,8 @@
   import Contacts from "$lib/components/Contacts.svelte";
   import Search from "$lib/components/Search.svelte";
   import { setContext } from "svelte";
-  import _contacts from "$lib/js/contacts";
-  let contacts = $state(_contacts);
+  import c from "$lib/js/contacts";
+  let contacts = $state(c.contacts);
   setContext("contacts", contacts);
 </script>
 

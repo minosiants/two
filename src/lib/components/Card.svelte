@@ -1,10 +1,9 @@
 <script>
   import Photo from "./Photo.svelte";
-  import Check from "./svg/Check.svelte";
-  import Plus from "./svg/Plus.svelte";
+  import HeardBroken from "./svg/HeardBroken.svelte";
+  import Heard from "./svg/Heard.svelte";
   import Refresh from "./svg/Refresh.svelte";
   import Submit from "./svg/Submit.svelte";
-  import { fade } from "svelte/transition";
   import { getContext } from "svelte";
   const { contacts } = getContext("contacts");
 
@@ -14,8 +13,8 @@
   let contact = $derived(c);
   let submitted = $state(false);
   let value = $state("");
-  let stateClass = $derived(submitted ? (success() ? "success" : "error") : "");
   const success = () => value === contact.contact;
+  let stateClass = $derived(submitted ? (success() ? "success" : "error") : "");
   $effect(() => (submitted ? (success() ? "success" : "error") : ""));
 
   const onclick = (e) => {
@@ -32,78 +31,96 @@
   };
 </script>
 
-<section class="center cover">
-  <ul class="with-sidebar box frame">
-    <li class="stack">
-      <div class="photo">
-        <Photo photo={contact.photo} />
-      </div>
-      <div>
-        <code>{contact.success}</code>
-        <code>{contact.fail}</code>
-      </div>
-    </li>
-    <li class="stack">
-      <address>
-        {#key contact.name}
-          <h2 transition:fade>{contact.name}</h2>
-        {/key}
-        <h3 class={submitted ? "" : "hidden"} transition:fade>
+<section class="frame box">
+  <div class="img stack">
+    <ul class="with-sidebar">
+      <li class="stack">
+        <div class="photo">
+          <Photo photo={contact.photo} />
+        </div>
+        <ul class="stats">
+          <li class="cluster">
+            <Heard />
+            <span>
+              {contact.success}
+            </span>
+          </li>
+          <li class="cluster">
+            <HeardBroken />
+            <span>{contact.fail}</span>
+          </li>
+        </ul>
+      </li>
+      <li class="stack">
+        <h1>{contact.name}</h1>
+        <h3 class={submitted ? "" : "hidden"}>
           {contact.contact}
         </h3>
-      </address>
-      <form class="">
-        <div class="with-sidebar">
-          <button {onclick}>
-            {#if submitted}
-              <Refresh />
-            {:else}
-              <Submit />
-            {/if}
-          </button>
-          <section class="stack {stateClass}">
-            <input type="text" placeholder="phone" bind:value />
-            <div class="line"></div>
-          </section>
-        </div>
-      </form>
-    </li>
-  </ul>
+      </li>
+    </ul>
+    <form class="with-sidebar">
+      <button {onclick}>
+        {#if submitted}
+          <Refresh />
+        {:else}
+          <Submit />
+        {/if}
+      </button>
+      <section class="stack {stateClass}">
+        <input type="text" placeholder="phone" bind:value />
+        <div class="line"></div>
+      </section>
+    </form>
+  </div>
 </section>
 
-<form class="">
-  <fieldset class="with-sidebar">
-    <button>
-      <Plus />
-    </button>
-    <section class="stack">
-      <input type="text" placeholder="phone" />
-      <div class="line"></div>
-    </section>
-  </fieldset>
-</form>
-
 <style>
-  h2 {
-    font-size: var(--font-pre-small);
-  }
-  ul {
+  section {
+    --border: 1px solid var(--borderColor-primary);
+    background-color: var(--bgColor-second);
+    --sidebar-width: var(--s3);
+    color: var(--color-second);
     margin-block: auto;
-    --sidebar-width: var(--s3);
   }
-  form div {
-    --sidebar-width: var(--s3);
+  .img {
+    margin-block: auto;
+  }
+
+  form.with-sidebar {
+    --svg-fill: var(--bgColor-primary);
     --sidebar-gutter: var(--s-1);
     flex-direction: row-reverse;
     justify-content: flex-end;
+    --stack-space: var(--s-4);
+    align-items: baseline;
+  }
+  input {
+    font-size: var(--font-large);
+    font-weight: bold;
   }
   .error {
     /*border: 1px solid red;*/
-  }
-  .success {
-    /* border: 1px solid green;*/
+    color: var(--accentColor-second);
   }
   .hidden {
     visibility: hidden;
+  }
+  .frame {
+    --shadow: 0 3px 6px var(--borderColor-primary),
+      0 3px 6px var(--borderColor-primary);
+    border: 1px solid var(--borderColor-primary);
+    border-radius: var(--border-radius-small);
+    box-shadow: var(--shadow);
+    --n: 90; /* numerator */
+    --d: 70; /* denominator */
+  }
+  .photo {
+    --svg-fill: var(--bgColor-primary);
+    --svg-stroke: var(--color-second);
+    background-color: var(--ink);
+    padding: var(--s-3);
+  }
+  .stats .cluster {
+    flex-wrap: nowrap;
   }
 </style>
