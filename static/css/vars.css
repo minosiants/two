@@ -1,49 +1,112 @@
 :root {
-	--ratio: 1.5;
-	--s-5: calc(var(--s-4) / var(--ratio));
-	--s-4: calc(var(--s-3) / var(--ratio));
-	--s-3: calc(var(--s-2) / var(--ratio));
-	--s-2: calc(var(--s-1) / var(--ratio));
-	--s-1: calc(var(--s0) / var(--ratio));
-	--s0: 1rem;
-	--s1: calc(var(--s0) * var(--ratio));
-	--s2: calc(var(--s1) * var(--ratio));
-	--s3: calc(var(--s2) * var(--ratio));
-	--s4: calc(var(--s3) * var(--ratio));
-	--s5: calc(var(--s4) * var(--ratio));
-	--space: var(--s1);
-	--measure: 60ch;
+  --ratio: 1.5;
+  --s-5: calc(var(--s-4) / var(--ratio));
+  --s-4: calc(var(--s-3) / var(--ratio));
+  --s-3: calc(var(--s-2) / var(--ratio));
+  --s-2: calc(var(--s-1) / var(--ratio));
+  --s-1: calc(var(--s0) / var(--ratio));
+  --s0: 1rem;
+  --s1: calc(var(--s0) * var(--ratio));
+  --s2: calc(var(--s1) * var(--ratio));
+  --s3: calc(var(--s2) * var(--ratio));
+  --s4: calc(var(--s3) * var(--ratio));
+  --s5: calc(var(--s4) * var(--ratio));
+  --space: var(--s1);
+  --measure: 60ch;
 
-	/*  collors */
-	--background: hsla(40, 33%, 89%, 1); /*  #EDE7DB  */
-	--dark-lighter: hsla(196, 6%, 51%, 1); /* #7D888C; */
-	--dark: hsla(40, 5%, 10%, 1); /* #1C1B19 */
-	--darker: var(--dark);
-	--accent: hsla(32, 66%, 55%, 1); /* #D99543; */
-	--accent-2: hsla(15, 62%, 46%, 1); /* #BF532C */
-	--border-thin: var(--accent-2);
+  /*  collors */
+  --color-2311CP: hsl(30, 39%, 66%); /* #caa885 */
+  --color-2311CP-0: hsl(30, 14%, 66%);
+  --color-2311CP-1: hsl(30, 19%, 66%);
+  --color-2311CP-2: hsl(30, 24%, 66%);
+  --color-2311CP-3: hsl(30, 29%, 66%);
+  --color-2311CP-4: hsl(30, 34%, 66%);
+  --color-2311CP-5: hsl(30, 39%, 66%);
+  --color-2311CP-6: hsl(30, 44%, 66%);
+  --color-2311CP-7: hsl(30, 49%, 66%);
+  --color-2311CP-8: hsl(30, 54%, 66%);
+  --color-2311CP-9: hsl(30, 59%, 66%);
+  --color-2311CP-10: hsl(30, 64%, 66%);
 
-	--ink: var(--dark);
-	--paper: var(--background);
+  --color-1535UP: hsl(24, 34%, 44%); /* #96694a */
+  --color-1535UP-0: hsl(24, 9%, 44%);
+  --color-1535UP-1: hsl(24, 14%, 44%);
+  --color-1535UP-2: hsl(24, 19%, 44%);
+  --color-1535UP-3: hsl(24, 24%, 44%);
+  --color-1535UP-4: hsl(24, 29%, 44%);
+  --color-1535UP-5: hsl(24, 34%, 44%);
+  --color-1535UP-6: hsl(24, 39%, 44%);
+  --color-1535UP-7: hsl(24, 44%, 44%);
+  --color-1535UP-8: hsl(24, 49%, 44%);
+  --color-1535UP-9: hsl(24, 54%, 44%);
+  --color-1535UP-10: hsl(24, 59%, 44%);
 
-	/* fonts */
-	--primaryFont: 'Atkinson Hyperlegible Next', sans-serif;
-	--accentFont: var(--primaryFont);
-	--font-x-large: clamp(2.5rem, calc(2.5rem + 1vw), 3rem);
-	--font-large: clamp(2rem, calc(2rem + 1vw), 2.5rem);
-	--font-medium: clamp(1.5rem, calc(1.5rem + 1vw), 2rem);
-	--font-normal: clamp(1rem, calc(1rem + 0.5vw), 1.5rem);
-	--font-pre-small: clamp(0.8rem, calc(0.8rem + 1vw), 1rem);
-	--font-pre-pre-small: clamp(0.2rem, calc(0.6rem + 0.5vw), 0.8rem);
-	--font-small: clamp(0.5rem, calc(0.5rem + 1vw), 0.6rem);
+  --color-18-1535TPG: hsl(10, 41%, 53%); /* #b86757 */
+  --color-18-1535TPG-0: hsl(10, 16%, 53%);
+  --color-18-1535TPG-1: hsl(10, 21%, 53%);
+  --color-18-1535TPG-2: hsl(10, 26%, 53%);
+  --color-18-1535TPG-3: hsl(10, 31%, 53%);
+  --color-18-1535TPG-4: hsl(10, 36%, 53%);
+  --color-18-1535TPG-5: hsl(10, 41%, 53%);
+  --color-18-1535TPG-6: hsl(10, 46%, 53%);
+  --color-18-1535TPG-7: hsl(10, 51%, 53%);
+  --color-18-1535TPG-8: hsl(10, 56%, 53%);
+  --color-18-1535TPG-9: hsl(10, 61%, 53%);
+  --color-18-1535TPG-10: hsl(10, 66%, 53%);
 
-	--font-size-h1: clamp(2rem, calc(2rem + 1vw), 2.5rem);
-	--font-size-h2: clamp(1.8rem, calc(1.8rem + 1vw), 2rem);
-	--font-size-h3: clamp(1.6rem, calc(1.6rem + 1vw), 1.8rem);
-	--font-size-h4: clamp(1.5rem, calc(1.5rem + 1vw), 1.6rem);
-	--font-size-h5: clamp(1.35rem, calc(1.35rem + 1vw), 1.5rem);
-	--font-size-h6: cclamp(1.1rem, calc(1.1rem + 1vw), 1.25rem);
+  --color-2566CP: hsl(167, 34%, 25%); /* #2a554c */
+  --color-2566CP-0: hsl(167, 9%, 25%);
+  --color-2566CP-1: hsl(167, 14%, 25%);
+  --color-2566CP-2: hsl(167, 19%, 25%);
+  --color-2566CP-3: hsl(167, 24%, 25%);
+  --color-2566CP-4: hsl(167, 29%, 25%);
+  --color-2566CP-5: hsl(167, 34%, 25%);
+  --color-2566CP-6: hsl(167, 39%, 25%);
+  --color-2566CP-7: hsl(167, 44%, 25%);
+  --color-2566CP-8: hsl(167, 49%, 25%);
+  --color-2566CP-9: hsl(167, 54%, 25%);
+  --color-2566CP-10: hsl(167, 59%, 25%);
 
-	--border-radius-large: 30px;
-	--border-radius-small: 10px;
+  --color-19-1535tcx: hsl(356, 45%, 29%); /* #6a282c */
+  --color-19-1535tcx-0: hsl(356, 20%, 29%);
+  --color-19-1535tcx-1: hsl(356, 25%, 29%);
+  --color-19-1535tcx-2: hsl(356, 30%, 29%);
+  --color-19-1535tcx-3: hsl(356, 35%, 29%);
+  --color-19-1535tcx-4: hsl(356, 40%, 29%);
+  --color-19-1535tcx-5: hsl(356, 45%, 29%);
+  --color-19-1535tcx-6: hsl(356, 50%, 29%);
+  --color-19-1535tcx-7: hsl(356, 55%, 29%);
+  --color-19-1535tcx-8: hsl(356, 60%, 29%);
+  --color-19-1535tcx-9: hsl(356, 65%, 29%);
+  --color-19-1535tcx-10: hsl(356, 70%, 29%);
+
+  --bgColor-primary: var(--color-2566CP-1);
+  --bgColor-primary-light: var(--color-2566CP-7);
+  --bgColor-second: var(--color-2311CP-3);
+  --color-primary: var(--color-2311CP-3);
+  --color-second: var(--color-2566CP-1);
+  --accentColor-primary: var(--color-1535UP-10);
+  --accentColor-second: var(--color-1535UP-10);
+  --btnColor-primary: var(--accentColor-primary);
+  --borderColor-primary: var(--color-1535UP-2);
+
+  /* fonts */
+  --primaryFont: "Atkinson Hyperlegible Next", sans-serif;
+  --accentFont: var(--primaryFont);
+  --font-large: clamp(1rem, calc(1rem + 1vw), 1.5rem);
+  --font-medium: clamp(1.5rem, calc(1.5rem + 1vw), 2rem);
+  --font-normal: clamp(1rem, calc(1rem + 0.5vw), 1.5rem);
+  --font-pre-small: clamp(0.8rem, calc(0.8rem + 1vw), 1rem);
+  --font-pre-pre-small: clamp(0.2rem, calc(0.6rem + 0.5vw), 0.8rem);
+  --font-small: clamp(0.5rem, calc(0.5rem + 1vw), 0.6rem);
+
+  --font-size-h1: clamp(2rem, calc(2rem + 1vw), 2.5rem);
+  --font-size-h2: clamp(1.8rem, calc(1.8rem + 1vw), 2rem);
+  --font-size-h3: clamp(1.6rem, calc(1.6rem + 1vw), 1.8rem);
+  --font-size-h4: clamp(1.5rem, calc(1.5rem + 1vw), 1.6rem);
+  --font-size-h5: clamp(1.35rem, calc(1.35rem + 1vw), 1.5rem);
+  --font-size-h6: cclamp(1.1rem, calc(1.1rem + 1vw), 1.25rem);
+
+  --border-radius-large: 30px;
+  --border-radius-small: 10px;
 }

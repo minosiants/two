@@ -26,9 +26,7 @@
 {#if focus != true}
   <section class="stack">
     <form class="with-sidebar">
-      <label for="search">
-        <Magnifier />
-      </label>
+      <Magnifier />
       <input {onfocus} placeholder="Search contacts" name="search" />
     </form>
     <div class="line"></div>
@@ -51,23 +49,28 @@
 
 <style>
   section {
-    --color: var(--dark-lighter);
-    --svg-fill: var(--color);
     --sidebar-gutter: var(--s1);
+    --sidebar-width: 2rem;
     --stack-space: var(--s-1);
+    --line-color: var(--bgColor-primary-light);
     transition: all 1s ease-out;
+    color: var(--color-primary);
   }
   section.active {
-    background-color: inherit;
+    --svg-fill: var(--bgColor-primary);
+    background-color: var(--bgColor-primary-light);
     position: absolute;
     left: 0;
     top: 0;
-    height: 100svh;
+    height: 100vh;
     width: 100%;
     z-index: 10;
   }
+  section :not(.active) {
+    --svg-fill: var(--bgColor-primary-light);
+  }
   .active form {
-    background-color: var(--accent);
+    background-color: var(--bgColor-primary-light);
   }
   input {
     font-size: var(--font-size-h6);

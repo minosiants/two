@@ -6,7 +6,7 @@ body {
   min-height: 100svh;
   color: var(--ink);
   font-family: var(--primaryFont);
-  background: var(--paper);
+  background: var(--bgColor-primary);
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
 }

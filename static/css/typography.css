@@ -20,7 +20,7 @@ footer {
 :where(h1, h2, h3, h4, h5, h6) {
   line-height: 1.1;
   font-family: var(--accentFont);
-  color: var(--darker);
+  color: var(--color-primary);
   text-wrap: balance;
   padding: 0;
   margin: 0;
@@ -31,7 +31,7 @@ body {
 }
 
 h1 {
-  font-size: var(--font-size-h4);
+  font-size: var(--font-large);
 }
 
 h2 {
@@ -52,31 +52,4 @@ h5 {
 
 h6 {
   font-size: var(--font-size-h6);
-}
-
-a {
-  color: var(--darker);
-  text-decoration-thickness: 0.2rem;
-  text-decoration-color: var(--accent);
-  transition:
-    transform 0.3s ease,
-    background 0.3s ease;
-  will-change: transform;
-}
-a:hover {
-  background: var(--accent);
-  transform: scale(1.05);
-}
-
-code {
-  font-size: var(--font-small);
-  line-height: 1 !important;
-}
-
-pre {
-  overflow-y: auto;
-  color: var(--paper);
-  background: var(--darker);
-  padding: 1rem;
-  line-height: 1 !important;
 }

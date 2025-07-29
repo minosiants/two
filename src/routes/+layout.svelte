@@ -1,4 +1,5 @@
 <script>
+  import Menu from "$lib/components/Menu.svelte";
 </script>
 
 <svelte:head>
@@ -14,6 +15,7 @@
 
 <main class="layout">
   <slot />
+  <Menu />
 </main>
 
 <style>

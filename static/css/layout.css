@@ -80,8 +80,8 @@ ul {
   display: flex;
   justify-content: var(--frame-justify, center);
   align-items: var(--frame-align, center);
-  border: 1px solid black;
 }
+.frame > .img,
 .frame > img,
 .frame > video {
   inline-size: 100%;
@@ -95,12 +95,11 @@ ul {
 }
 
 .cover {
-  /* ↓ Establish a columnal flex context */
   display: flex;
   flex-direction: column;
   /* ↓ Set a minimum height to match the viewport height
   (any minimum would be fine) */
   min-block-size: 100vh;
   /* Set a padding value */
-  padding: var(--space);
+  padding-bottom: var(--s4);
 }

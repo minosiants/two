@@ -1,16 +1,13 @@
 svg {
-  fill: var(--svg-fill, var(--accent));
-  width: var(--svg-size, var(--font-medium));
-  height: var(--svg-size, var(--font-medium));
+  fill: var(--svg-fill, var(--color-primary));
   vertical-align: middle;
   transition: transform 0.3s;
   transform: scale(1.2);
 }
 path {
-  stroke: var(--svg-fill, var(--accent));
+  stroke: var(--svg-stroke, var(--bgColor-primary));
 }
 .line {
-  background-color: var(--line-color, var(--dark-lighter));
-  height: var(--s-5);
-  transition: background-color 0.3s;
+  border-bottom: 2px solid var(--line-color, var(--bgColor-primary));
+  padding: var(--s-3);
 }

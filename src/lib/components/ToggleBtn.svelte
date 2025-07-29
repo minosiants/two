@@ -18,4 +18,7 @@
 </button>
 
 <style>
+  button {
+    width: 2rem;
+  }
 </style>
