@@ -1,12 +1,13 @@
 <script>
+  import { setContext } from "svelte";
   import Contact from "./Contact.svelte";
-  let { contacts = [] } = $props();
+  let { contacts = $bindable() } = $props();
 </script>
 
 <ul class="stack">
-  {#each contacts as contact}
+  {#each contacts as contact, i}
     <li>
-      <Contact id={contact.id} />
+      <Contact bind:contact={contacts[i]} />
     </li>
   {/each}
 </ul>

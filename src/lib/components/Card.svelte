@@ -4,13 +4,11 @@
   import Heard from "./svg/Heard.svelte";
   import Refresh from "./svg/Refresh.svelte";
   import Submit from "./svg/Submit.svelte";
-  import { getContext } from "svelte";
-  const { contacts } = getContext("contacts");
+  const { contacts } = $props();
 
   const random = (max) => Math.floor(Math.random() * max);
   const randomContact = () => contacts[random(contacts.length)];
-  const { c = randomContact() } = $props();
-  let contact = $derived(c);
+  let contact = $derived(randomContact());
   let submitted = $state(false);
   let value = $state("");
   const success = () => value === contact.contact;

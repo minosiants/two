@@ -21,7 +21,7 @@ class Query(private val contentResolver: ContentResolver) {
                 val id = c.getString(c.getColumnIndexOrThrow(ContactsContract.Contacts._ID))
                 val name = c.getString(c.getColumnIndexOrThrow(ContactsContract.Contacts.DISPLAY_NAME))
                 if (id != null && name != null) {
-                    result.add(Contact(id, name))
+                    result.add(Contact(id, name, "num"))
                 }
             }
         }
@@ -30,5 +30,5 @@ class Query(private val contentResolver: ContentResolver) {
 }
 
 
-data class Contact(val id: String, val name: String)
+data class Contact(val id: String, val name: String, val phone:String)
 
