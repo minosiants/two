@@ -1,5 +1,14 @@
 <script>
   import Menu from "$lib/components/Menu.svelte";
+  import { getContacts, saveContacts } from "$lib/js/commands";
+  import { contactsStore } from "$lib/js/store";
+  import { onMount } from "svelte";
+  onMount(async () =>
+    getContacts().then((v) => {
+      contactsStore.set(v);
+      console.log("::::::::::::", v);
+    }),
+  );
 </script>
 
 <svelte:head>

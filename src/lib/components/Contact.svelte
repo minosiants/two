@@ -1,16 +1,13 @@
 <script>
   import Photo from "./Photo.svelte";
   import ToggleBtn from "./ToggleBtn.svelte";
-  import { getContext } from "svelte";
-  const { id } = $props();
-  let contact = getContext("contacts").find((v) => v.id === id);
-  console.log(id);
+  const { contact = $bindable() } = $props();
 </script>
 
 <article class="cluster">
   <div class="cluster">
     <div class="photo">
-      <Photo photo={contact.photo} />
+      <Photo photo="" />
     </div>
     <ul class="stack">
       <li>{contact.name}</li>
@@ -18,7 +15,7 @@
     </ul>
   </div>
   <div class="toggle">
-    <ToggleBtn {id} />
+    <ToggleBtn bind:toggeled={contact.selected} />
   </div>
 </article>
 

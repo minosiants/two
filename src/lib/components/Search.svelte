@@ -2,8 +2,9 @@
   import Contacts from "./Contacts.svelte";
   import ArrowLeft from "./svg/ArrowLeft.svelte";
   import Magnifier from "./svg/Magnifier.svelte";
-  import { getContext } from "svelte";
-  let contacts = getContext("contacts");
+
+  let { contacts = $bindable() } = $props();
+
   let focus = $state(false);
   let result = $state([]);
   const onfocus = () => {

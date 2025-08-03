@@ -1,16 +1,14 @@
 <script>
   import Plus from "./svg/Plus.svelte";
   import Minus from "./svg/Minus.svelte";
-  import { getContext } from "svelte";
-  const { id } = $props();
-  let contact = getContext("contacts").find((v) => v.id === id);
+  let { toggeled = $bindable() } = $props();
   const onclick = () => {
-    contact.selected = !contact.selected;
+    toggeled = !toggeled;
   };
 </script>
 
 <button {onclick}>
-  {#if contact.selected}
+  {#if toggeled}
     <Minus />
   {:else}
     <Plus />
