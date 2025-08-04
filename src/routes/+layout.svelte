@@ -1,13 +1,22 @@
 <script>
   import Menu from "$lib/components/Menu.svelte";
   import { getContacts, saveContacts } from "$lib/js/commands";
+  import { readContacts } from "$lib/js/fs";
   import { contactsStore } from "$lib/js/store";
   import { onMount } from "svelte";
   onMount(async () =>
-    getContacts().then((v) => {
-      contactsStore.set(v);
-      console.log("::::::::::::", v);
-    }),
+    readContacts()
+      .then((c) => {
+        if (c.length === 0) return getContacts();
+        else {
+          console.log("c", c);
+          return c;
+        }
+      })
+      .then((contacts) => {
+        contactsStore.set(contacts);
+        console.log("::::::::::::", contacts);
+      }),
   );
 </script>
 
