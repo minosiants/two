@@ -3,7 +3,7 @@
   import Search from "$lib/components/Search.svelte";
   import { onDestroy } from "svelte";
   import { contactsStore } from "$lib/js/store";
-  import { saveContacts } from "$lib/js/commands";
+  import { saveContacts } from "$lib/js/fs";
   let contacts = $state([]);
   let unsubscirbe = contactsStore.subscribe((v) => {
     contacts = v;
