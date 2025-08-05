@@ -8,7 +8,7 @@
 
   const random = (max) => Math.floor(Math.random() * max);
   const randomContact = () => contacts[random(contacts.length)];
-  let contact = $derived(randomContact());
+  let contact = $state(randomContact());
   let submitted = $state(false);
   let value = $state("");
   const success = () => value === contact.contact;
@@ -27,6 +27,7 @@
       value = "";
     }
   };
+  console.log("contact", contact);
 </script>
 
 <section class="frame box">
@@ -34,7 +35,7 @@
     <ul class="with-sidebar">
       <li class="stack">
         <div class="photo">
-          <Photo photo={contact.photo} />
+          <Photo photo="" />
         </div>
         <ul class="stats">
           <li class="cluster">

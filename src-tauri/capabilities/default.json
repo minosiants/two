@@ -12,15 +12,18 @@
     "fs:allow-write-text-file",
     "fs:allow-read-text-file",
     "fs:allow-mkdir",
+    "fs:allow-create",
+    "fs:allow-write",
+    "fs:allow-remove",
     "fs:allow-exists",
     {
       "identifier": "fs:scope",
       "allow": [
         {
-          "path": "$APPDATA"
+          "path": "$APPLOCALDATA"
         },
         {
-          "path": "$APPDATA/**/*"
+          "path": "$APPLOCALDATA/**/*"
         }
       ]
     }

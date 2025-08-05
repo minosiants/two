@@ -1,7 +1,8 @@
 <script>
   import Photo from "./Photo.svelte";
   import ToggleBtn from "./ToggleBtn.svelte";
-  const { contact = $bindable() } = $props();
+  import { saveContacts } from "$lib/js/contacts.svelte";
+  let { contact = $bindable() } = $props();
 </script>
 
 <article class="cluster">
@@ -15,7 +16,7 @@
     </ul>
   </div>
   <div class="toggle">
-    <ToggleBtn bind:toggeled={contact.selected} />
+    <ToggleBtn bind:toggled={contact.toggled} />
   </div>
 </article>
 
