@@ -1,23 +1,9 @@
 <script>
   import Menu from "$lib/components/Menu.svelte";
-  import { getContacts, saveContacts } from "$lib/js/commands";
-  import { readContacts } from "$lib/js/fs";
-  import { contactsStore } from "$lib/js/store";
-  import { onMount } from "svelte";
-  onMount(async () =>
-    readContacts()
-      .then((c) => {
-        if (c.length === 0) return getContacts();
-        else {
-          console.log("c", c);
-          return c;
-        }
-      })
-      .then((contacts) => {
-        contactsStore.set(contacts);
-        console.log("::::::::::::", contacts);
-      }),
-  );
+  import { contactsState } from "$lib/js/contacts.svelte";
+
+  let { data } = $props();
+  contactsState.value = data.contacts;
 </script>
 
 <svelte:head>

@@ -1,11 +1,8 @@
 <script lang="ts">
   import Card from "$lib/components/Card.svelte";
-  import { contactsStore } from "$lib/js/store";
-  import { onDestroy } from "svelte";
-
-  let contacts = $state([]);
-  let unsubscirbe = contactsStore.subscribe((v) => (contacts = v));
-  onDestroy(unsubscirbe);
+  import { contactsState } from "$lib/js/contacts.svelte";
+  let contacts = contactsState.value;
+  console.log("/", $state.snapshot(contacts.length));
 </script>
 
 <main class="center cover">

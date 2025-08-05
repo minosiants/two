@@ -1,14 +1,19 @@
 <script>
+  import { saveContacts, contactsState } from "$lib/js/contacts.svelte";
   import Contacts from "./svg/Contacts.svelte";
   import Play from "./svg/Play.svelte";
+
+  const onclick = async () => {
+    saveContacts(contactsState.value);
+  };
 </script>
 
 <nav class="">
-  <a href="/">
+  <a href="/" {onclick}>
     <Play />
   </a>
 
-  <a href="/contacts">
+  <a href="/contacts" {onclick}>
     <Contacts />
   </a>
 </nav>

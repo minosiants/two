@@ -1,14 +1,14 @@
 <script>
   import Plus from "./svg/Plus.svelte";
   import Minus from "./svg/Minus.svelte";
-  let { toggeled = $bindable() } = $props();
+  let { toggled = $bindable() } = $props();
   const onclick = () => {
-    toggeled = !toggeled;
+    toggled = !toggled;
   };
 </script>
 
 <button {onclick}>
-  {#if toggeled}
+  {#if toggled}
     <Minus />
   {:else}
     <Plus />
