@@ -1,26 +1,32 @@
-#![cfg(mobile)]
-
 use tauri::{
     plugin::{Builder, TauriPlugin},
     Manager, Runtime,
 };
 
 pub use models::*;
-
-mod error;
+#[cfg(desktop)]
+mod desktop;
+#[cfg(mobile)]
 mod mobile;
+
+mod commands;
+mod error;
 mod models;
 
-pub use error::{Error, Result};
+use commands::*;
+use error::Result;
 
-pub use mobile::Contacts;
+#[cfg(desktop)]
+use desktop::Contacts;
+#[cfg(mobile)]
+use mobile::Contacts;
 
 /// Extensions to [`tauri::App`], [`tauri::AppHandle`] and [`tauri::Window`] to access the contacts APIs.
 pub trait ContactsExt<R: Runtime> {
     fn contacts(&self) -> &Contacts<R>;
 }
 
-impl<R: Runtime, T: Manager<R>> crate::ContactsExt<R> for T {
+impl<R: Runtime, T: Manager<R>> ContactsExt<R> for T {
     fn contacts(&self) -> &Contacts<R> {
         self.state::<Contacts<R>>().inner()
     }
@@ -29,9 +35,16 @@ impl<R: Runtime, T: Manager<R>> crate::ContactsExt<R> for T {
 /// Initializes the plugin.
 pub fn init<R: Runtime>() -> TauriPlugin<R> {
     Builder::new("contacts")
+        .invoke_handler(tauri::generate_handler![
+            check_permissions,
+            request_permissions,
+            get_contacts
+        ])
         .setup(|app, api| {
-            #[cfg(target_os = "android")]
+            #[cfg(mobile)]
             let contacts = mobile::init(app, api)?;
+            #[cfg(desktop)]
+            let contacts = desktop::init(app, api)?;
             app.manage(contacts);
             Ok(())
         })

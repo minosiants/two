@@ -1,5 +1,7 @@
 use serde::{Deserialize, Serialize};
-#[derive(Clone, Serialize, Deserialize, Debug)]
+use specta::Type;
+
+#[derive(Clone, Serialize, Deserialize, Debug, Type)]
 pub struct Contact {
     pub id: Id,
     pub name: Name,
@@ -21,23 +23,23 @@ impl Contact {
         }
     }
 }
-#[derive(Clone, Serialize, Deserialize, Debug)]
+#[derive(Clone, Serialize, Deserialize, Debug, Type)]
 #[serde(transparent)]
 pub struct Id(String);
 
-#[derive(Clone, Serialize, Deserialize, Debug)]
+#[derive(Clone, Serialize, Deserialize, Debug, Type)]
 #[serde(transparent)]
 pub struct Selected(bool);
-#[derive(Clone, Serialize, Deserialize, Debug)]
+#[derive(Clone, Serialize, Deserialize, Debug, Type)]
 #[serde(transparent)]
 pub struct Name(String);
-#[derive(Clone, Serialize, Deserialize, Debug)]
+#[derive(Clone, Serialize, Deserialize, Debug, Type)]
 #[serde(transparent)]
 pub struct Phone(String);
-#[derive(Clone, Serialize, Deserialize, Debug)]
+#[derive(Clone, Serialize, Deserialize, Debug, Type)]
 #[serde(transparent)]
 pub struct Success(i32);
-#[derive(Clone, Serialize, Deserialize, Debug)]
+#[derive(Clone, Serialize, Deserialize, Debug, Type)]
 #[serde(transparent)]
 pub struct Fail(i32);
 

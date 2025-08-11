@@ -11,7 +11,7 @@
   let contact = $state(randomContact());
   let submitted = $state(false);
   let value = $state("");
-  const success = () => value === contact.contact;
+  const success = () => value === contact.phone;
   let stateClass = $derived(submitted ? (success() ? "success" : "error") : "");
   $effect(() => (submitted ? (success() ? "success" : "error") : ""));
 
@@ -27,7 +27,6 @@
       value = "";
     }
   };
-  console.log("contact", contact);
 </script>
 
 <section class="frame box">
@@ -53,7 +52,7 @@
       <li class="stack">
         <h1>{contact.name}</h1>
         <h3 class={submitted ? "" : "hidden"}>
-          {contact.contact}
+          {contact.phone}
         </h3>
       </li>
     </ul>
@@ -84,7 +83,9 @@
   .img {
     margin-block: auto;
   }
-
+  h3 {
+    font-size: var(--font-large);
+  }
   form.with-sidebar {
     --svg-fill: var(--bgColor-primary);
     --sidebar-gutter: var(--s-1);

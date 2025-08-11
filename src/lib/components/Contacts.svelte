@@ -1,5 +1,4 @@
 <script>
-  import { setContext } from "svelte";
   import Contact from "./Contact.svelte";
   let { contacts = $bindable() } = $props();
 </script>
