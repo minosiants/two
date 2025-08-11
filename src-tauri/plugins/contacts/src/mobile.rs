@@ -4,6 +4,7 @@ use tauri::{
     AppHandle, Runtime,
 };
 
+use crate::error::*;
 use crate::models::*;
 
 #[cfg(target_os = "ios")]
@@ -16,8 +17,8 @@ pub fn init<R: Runtime, C: DeserializeOwned>(
 ) -> crate::Result<Contacts<R>> {
     #[cfg(target_os = "android")]
     let handle = api.register_android_plugin("com.minosiants.two.contacts", "ContactsPlugin")?;
-    // #[cfg(target_os = "ios")]
-    // let handle = api.register_ios_plugin(init_plugin_contacts)?;
+    #[cfg(target_os = "ios")]
+    let handle = api.register_ios_plugin(init_plugin_contacts)?;
     Ok(Contacts(handle))
 }
 
@@ -25,7 +26,30 @@ pub fn init<R: Runtime, C: DeserializeOwned>(
 pub struct Contacts<R: Runtime>(PluginHandle<R>);
 
 impl<R: Runtime> Contacts<R> {
-    pub fn contacts(&self) -> crate::Result<Vec<Contact>> {
-        self.0.run_mobile_plugin("contacts", ()).map_err(Into::into)
+    pub fn check_permissions(&self) -> Result<PermissionStatus> {
+        let res = self
+            .0
+            .run_mobile_plugin("checkPermissions", ())
+            .map_err(Into::into);
+        println!("check permission result {:?}", res);
+        res
+    }
+
+    pub fn request_permissions(&self) -> Result<PermissionStatus> {
+        let res = self
+            .0
+            .run_mobile_plugin(
+                "requestPermissions",
+                RequestPermissionsArgs {
+                    permissions: vec!["readContacts".to_string()],
+                },
+            )
+            .map_err(Into::into);
+        res
+    }
+    pub fn get_contacts(&self) -> Result<Vec<Contact>> {
+        self.0
+            .run_mobile_plugin("getContacts", ())
+            .map_err(Into::into)
     }
 }

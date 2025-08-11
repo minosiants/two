@@ -1,7 +1,6 @@
 <script>
   import Photo from "./Photo.svelte";
   import ToggleBtn from "./ToggleBtn.svelte";
-  import { saveContacts } from "$lib/js/contacts.svelte";
   let { contact = $bindable() } = $props();
 </script>
 
@@ -12,11 +11,11 @@
     </div>
     <ul class="stack">
       <li>{contact.name}</li>
-      <li>{contact.contact}</li>
+      <li>{contact.phone}</li>
     </ul>
   </div>
   <div class="toggle">
-    <ToggleBtn bind:toggled={contact.toggled} />
+    <ToggleBtn bind:toggled={contact.selected} />
   </div>
 </article>
 

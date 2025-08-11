@@ -3,11 +3,12 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 54;
+	objectVersion = 77;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		03B83CDC2C22284DD9CC9E9B /* assets in Resources */ = {isa = PBXBuildFile; fileRef = 3D655AE32AD8F7F3FFE14F57 /* assets */; };
+		22B7C3666B52D0F244D78B2D /* libapp.a in Resources */ = {isa = PBXBuildFile; fileRef = 2EB2F7503E32E9CC76703F85 /* libapp.a */; };
 		333B3143ED61E67681C7D68D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8B5C02251EE4A6575524398F /* Assets.xcassets */; };
 		3CFCF84443BE4DB9BF01B1FC /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F5A20CA7A26017B81B8AA1A /* UIKit.framework */; };
 		3FD6425FF51AC09AD31D8A75 /* Metal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 53A252CED686D39A16741C1F /* Metal.framework */; };
@@ -24,6 +25,7 @@
 /* Begin PBXFileReference section */
 		0A298E9628C39879C50844C8 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		25F139A961A21DEAE3798D6F /* libapp.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libapp.a; sourceTree = "<group>"; };
+		2EB2F7503E32E9CC76703F85 /* libapp.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libapp.a; sourceTree = "<group>"; };
 		331041B5B898F38F09D8BF0A /* bindings.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = bindings.h; sourceTree = "<group>"; };
 		3D655AE32AD8F7F3FFE14F57 /* assets */ = {isa = PBXFileReference; lastKnownFileType = folder; path = assets; sourceTree = SOURCE_ROOT; };
 		4964C98D8C6BC067DDAF8710 /* MetalKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MetalKit.framework; path = System/Library/Frameworks/MetalKit.framework; sourceTree = SDKROOT; };
@@ -37,6 +39,7 @@
 		9B8CD803FFF52A7F7D923C15 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		A24DC651E898EF524864EA71 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		BBC6FC06F6FB61B74D279043 /* two_iOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = two_iOS.entitlements; sourceTree = "<group>"; };
+		C9B335D0D4C1DFCABCE2345F /* model.rs */ = {isa = PBXFileReference; path = model.rs; sourceTree = "<group>"; };
 		CF463478E0C60D9376E907DD /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		EC54FB2BE9748058811215EC /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		F6F193754D30E97D1635C73C /* two_iOS.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = two_iOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -74,6 +77,14 @@
 				CF463478E0C60D9376E907DD /* WebKit.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		2267B911A8A1ED3C2ADAA2C7 /* debug */ = {
+			isa = PBXGroup;
+			children = (
+				2EB2F7503E32E9CC76703F85 /* libapp.a */,
+			);
+			path = debug;
 			sourceTree = "<group>";
 		};
 		29A8D36FD3D5A522BE8588DE /* Sources */ = {
@@ -136,6 +147,7 @@
 		C272C47D2DD36AD2A5EE93BE /* Externals */ = {
 			isa = PBXGroup;
 			children = (
+				F993E84E6EEEBD6B269F2BE8 /* arm64 */,
 			);
 			path = Externals;
 			sourceTree = "<group>";
@@ -145,9 +157,25 @@
 			children = (
 				83FE5DD3F941D1DD234E4B81 /* lib.rs */,
 				62376030707E25FD84380C54 /* main.rs */,
+				C9B335D0D4C1DFCABCE2345F /* model.rs */,
 			);
 			name = src;
 			path = ../../src;
+			sourceTree = "<group>";
+		};
+		F993E84E6EEEBD6B269F2BE8 /* arm64 */ = {
+			isa = PBXGroup;
+			children = (
+				2267B911A8A1ED3C2ADAA2C7 /* debug */,
+			);
+			path = arm64;
+			sourceTree = "<group>";
+		};
+		"TEMP_39FA7E95-CFA0-4EF6-98EE-250548528A32" /* x86_64 */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = x86_64;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -181,8 +209,6 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = YES;
 				LastUpgradeCheck = 1430;
-				TargetAttributes = {
-				};
 			};
 			buildConfigurationList = 8C90996673A951BA9526E5FA /* Build configuration list for PBXProject "two" */;
 			compatibilityVersion = "Xcode 14.0";
@@ -194,7 +220,7 @@
 			);
 			mainGroup = 2A1DF7895F55E1C2877D256B;
 			minimizedProjectReferenceProxies = 1;
-			preferredProjectObjectVersion = 54;
+			preferredProjectObjectVersion = 77;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
@@ -211,6 +237,7 @@
 				333B3143ED61E67681C7D68D /* Assets.xcassets in Resources */,
 				F5BBCD8FA8755DF6012A17B5 /* LaunchScreen.storyboard in Resources */,
 				03B83CDC2C22284DD9CC9E9B /* assets in Resources */,
+				22B7C3666B52D0F244D78B2D /* libapp.a in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -236,7 +263,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "pnpm tauri ios xcode-script -v --platform ${PLATFORM_DISPLAY_NAME:?} --sdk-root ${SDKROOT:?} --framework-search-paths \"${FRAMEWORK_SEARCH_PATHS:?}\" --header-search-paths \"${HEADER_SEARCH_PATHS:?}\" --gcc-preprocessor-definitions \"${GCC_PREPROCESSOR_DEFINITIONS:-}\" --configuration ${CONFIGURATION:?} ${FORCE_COLOR} ${ARCHS:?}";
+			shellScript = "/Users/kaspar/.volta/bin/pnpm tauri ios xcode-script -v --platform ${PLATFORM_DISPLAY_NAME:?} --sdk-root ${SDKROOT:?} --framework-search-paths \"${FRAMEWORK_SEARCH_PATHS:?}\" --header-search-paths \"${HEADER_SEARCH_PATHS:?}\" --gcc-preprocessor-definitions \"${GCC_PREPROCESSOR_DEFINITIONS:-}\" --configuration ${CONFIGURATION:?} ${FORCE_COLOR} ${ARCHS:?}";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -395,7 +422,7 @@
 				"LIBRARY_SEARCH_PATHS[arch=arm64]" = "$(inherited) $(PROJECT_DIR)/Externals/arm64/$(CONFIGURATION) $(SDKROOT)/usr/lib/swift $(TOOLCHAIN_DIR)/usr/lib/swift/$(PLATFORM_NAME) $(TOOLCHAIN_DIR)/usr/lib/swift-5.0/$(PLATFORM_NAME)";
 				"LIBRARY_SEARCH_PATHS[arch=x86_64]" = "$(inherited) $(PROJECT_DIR)/Externals/x86_64/$(CONFIGURATION) $(SDKROOT)/usr/lib/swift $(TOOLCHAIN_DIR)/usr/lib/swift/$(PLATFORM_NAME) $(TOOLCHAIN_DIR)/usr/lib/swift-5.0/$(PLATFORM_NAME)";
 				PRODUCT_BUNDLE_IDENTIFIER = com.minosiants.two.app;
-				PRODUCT_NAME = two;
+				PRODUCT_NAME = "two";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALID_ARCHS = arm64;
@@ -426,7 +453,7 @@
 				"LIBRARY_SEARCH_PATHS[arch=arm64]" = "$(inherited) $(PROJECT_DIR)/Externals/arm64/$(CONFIGURATION) $(SDKROOT)/usr/lib/swift $(TOOLCHAIN_DIR)/usr/lib/swift/$(PLATFORM_NAME) $(TOOLCHAIN_DIR)/usr/lib/swift-5.0/$(PLATFORM_NAME)";
 				"LIBRARY_SEARCH_PATHS[arch=x86_64]" = "$(inherited) $(PROJECT_DIR)/Externals/x86_64/$(CONFIGURATION) $(SDKROOT)/usr/lib/swift $(TOOLCHAIN_DIR)/usr/lib/swift/$(PLATFORM_NAME) $(TOOLCHAIN_DIR)/usr/lib/swift-5.0/$(PLATFORM_NAME)";
 				PRODUCT_BUNDLE_IDENTIFIER = com.minosiants.two.app;
-				PRODUCT_NAME = two;
+				PRODUCT_NAME = "two";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALID_ARCHS = arm64;

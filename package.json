@@ -15,7 +15,9 @@
   "dependencies": {
     "@tauri-apps/api": "^2.7.0",
     "@tauri-apps/plugin-fs": "~2",
-    "@tauri-apps/plugin-opener": "^2.4.0"
+    "@tauri-apps/plugin-log": "~2.6.0",
+    "@tauri-apps/plugin-opener": "^2.4.0",
+    "tauri-plugin-contacts": "workspace:^"
   },
   "devDependencies": {
     "@sveltejs/adapter-static": "^3.0.8",

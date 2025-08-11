@@ -20,12 +20,14 @@
       "identifier": "fs:scope",
       "allow": [
         {
-          "path": "$APPLOCALDATA"
+          "path": "$APPDATA"
         },
         {
-          "path": "$APPLOCALDATA/**/*"
+          "path": "$APPDATA/**/*"
         }
       ]
-    }
+    },
+    "log:default",
+    "contacts:default"
   ]
 }

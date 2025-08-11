@@ -1,16 +1,10 @@
 <script>
   import Card from "$lib/components/Card.svelte";
   import Colors from "$lib/components/Colors.svelte";
-  import contacts from "$lib/js/contacts";
-  import { setContext } from "svelte";
-
-  setContext("contacts", contacts);
 </script>
 
 <section>
-  <div class=" box">
-    <Card />
-  </div>
+  <div class=" box"></div>
 </section>
 <section>
   <Colors />
